@@ -215,6 +215,7 @@ An unknown id returns `404`.
 | Web UI: student list | [05-web-ui-student-list.png](docs/screenshots/05-web-ui-student-list.png) |
 | Web UI: editing a student | [06-web-ui-edit-student.png](docs/screenshots/06-web-ui-edit-student.png) |
 | Web UI: search | [07-web-ui-search.png](docs/screenshots/07-web-ui-search.png) |
+| Git commit history | [08-git-commit-history.png](docs/screenshots/08-git-commit-history.png) |
 
 ## Local development (without Docker, optional)
 
