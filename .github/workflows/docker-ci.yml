@@ -1,0 +1,57 @@
+name: Docker CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build-test:
+    name: Build, test and smoke-test image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Run tests in Docker (test stage)
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          target: test
+          tags: student-crud-manager:test
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Build runtime image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          target: runtime
+          tags: student-crud-manager:ci
+          load: true
+          cache-from: type=gha
+
+      - name: Smoke test running container
+        run: |
+          docker run -d --name app -p 8000:8000 student-crud-manager:ci
+          for i in $(seq 1 30); do
+            status=$(docker inspect -f '{{.State.Health.Status}}' app)
+            echo "health: $status"
+            [ "$status" = "healthy" ] && break
+            sleep 2
+          done
+          [ "$status" = "healthy" ] || { docker logs app; exit 1; }
+          curl -fsS http://localhost:8000/health
+          curl -fsS -X POST http://localhost:8000/api/students \
+            -H 'Content-Type: application/json' \
+            -d '{"student_code":"CI-1","first_name":"Ci","last_name":"Bot","email":"ci@example.com","major":"DevOps","gpa":3.2,"enrolled_year":2024}'
+          curl -fsS http://localhost:8000/api/students | grep -q '"CI-1"'
+
+      - name: Show image size
+        if: always()
+        run: docker images student-crud-manager
