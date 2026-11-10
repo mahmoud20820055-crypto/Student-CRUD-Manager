@@ -1,0 +1,30 @@
+# Keep the build context small: only src/ and requirements files are needed
+.git
+.github
+.gitignore
+.dockerignore
+docs
+*.md
+LICENSE
+Makefile
+docker-compose.yml
+Dockerfile
+
+# Python artefacts / local environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# Local data and secrets
+data/
+instance/
+*.db
+.env
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
