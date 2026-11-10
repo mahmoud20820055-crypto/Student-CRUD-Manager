@@ -1,0 +1,33 @@
+:root { --bg:#f5f7fb; --card:#fff; --text:#1f2937; --muted:#6b7280; --accent:#2563eb; --danger:#dc2626; --border:#e5e7eb; }
+* { box-sizing: border-box; }
+body { margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background:var(--bg); color:var(--text); }
+header { background:var(--accent); color:#fff; padding:24px 16px; text-align:center; }
+header h1 { margin:0 0 4px; font-size:1.6rem; }
+header p { margin:0; opacity:.85; }
+main { max-width:1100px; margin:0 auto; padding:16px; display:grid; gap:16px; }
+.card { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:16px; }
+h2 { margin:0 0 12px; font-size:1.15rem; }
+.stats { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+.stats div { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:14px; text-align:center; }
+.stats span { display:block; font-size:1.6rem; font-weight:700; color:var(--accent); }
+.stats small { color:var(--muted); }
+form { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px; }
+label { display:flex; flex-direction:column; font-size:.85rem; color:var(--muted); gap:4px; }
+input { padding:8px 10px; border:1px solid var(--border); border-radius:6px; font-size:.95rem; color:var(--text); }
+.actions { display:flex; gap:8px; align-items:end; }
+button { padding:9px 14px; border:0; border-radius:6px; background:var(--accent); color:#fff; cursor:pointer; font-size:.9rem; }
+button.secondary { background:#e5e7eb; color:var(--text); }
+button.danger { background:var(--danger); }
+button.small { padding:5px 9px; font-size:.8rem; }
+#form-msg { grid-column:1/-1; margin:0; min-height:1.2em; font-size:.9rem; }
+#form-msg.error { color:var(--danger); }
+#form-msg.ok { color:#059669; }
+.list-head { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:center; margin-bottom:8px; }
+.list-head h2 { margin:0; }
+#search { min-width:260px; flex:1; max-width:380px; }
+.table-wrap { overflow-x:auto; }
+table { width:100%; border-collapse:collapse; font-size:.92rem; }
+th, td { text-align:left; padding:9px 8px; border-bottom:1px solid var(--border); white-space:nowrap; }
+th { color:var(--muted); font-weight:600; }
+td.row-actions { text-align:right; display:flex; gap:6px; justify-content:flex-end; }
+#empty { color:var(--muted); text-align:center; }
