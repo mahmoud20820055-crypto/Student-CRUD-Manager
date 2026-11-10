@@ -1,6 +1,6 @@
 # Student CRUD Manager
 
-[![Docker CI](https://github.com/mahmoud20820055-crypto/Student_Curd/actions/workflows/docker-ci.yml/badge.svg)](https://github.com/mahmoud20820055-crypto/Student_Curd/actions/workflows/docker-ci.yml)
+[![Docker CI](https://github.com/mahmoud20820055-crypto/Student-CRUD-Manager/actions/workflows/docker-ci.yml/badge.svg)](https://github.com/mahmoud20820055-crypto/Student-CRUD-Manager/actions/workflows/docker-ci.yml)
 
 A containerised web application and REST API for managing university student records.
 You can **create, list, search, edit and delete** students (code, name, email, major, GPA,
@@ -26,7 +26,7 @@ Data is stored in SQLite on a Docker volume, so it survives container restarts.
 ## Project structure
 
 ```
-Student_Curd/
+Student-CRUD-Manager/
 ├─ src/
 │  ├─ app/
 │  │  ├─ __init__.py        # Flask application factory
@@ -56,8 +56,8 @@ Student_Curd/
 **Prerequisites:** Docker 23+ (BuildKit enabled by default). Nothing else is needed: no Python install.
 
 ```bash
-git clone https://github.com/mahmoud20820055-crypto/Student_Curd.git
-cd Student_Curd
+git clone https://github.com/mahmoud20820055-crypto/Student-CRUD-Manager.git
+cd Student-CRUD-Manager
 ```
 
 ### Option 1: plain Docker
