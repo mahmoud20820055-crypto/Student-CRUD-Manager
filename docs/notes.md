@@ -54,7 +54,7 @@ This also made problems easier to isolate. When the Docker build failed, I knew 
 Related lessons:
 - **`.gitignore` first.** Adding it in the first commit kept `__pycache__/`, virtualenvs and the
   local SQLite database out of history. Removing a committed file later does not remove it from history.
-- **Feature branch + Pull Request.** Work was done on a feature branch and merged into `main`
-  through a PR. The CI workflow runs on the PR, so broken code is caught before it reaches `main`.
+- **Feature branch + Pull Request.** Work is done on a feature branch and goes into `main`
+  through a Pull Request. CI runs on the PR, so broken code is caught before it reaches `main`.
 - **`.gitignore` ≠ `.dockerignore`.** Git and Docker use separate ignore files. Tests are committed to
   Git but excluded from the build context of the runtime image.
